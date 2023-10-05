@@ -3,14 +3,13 @@ import os
 import openai
 import tiktoken
 
-openai.api_key = os.getenv("OPENAI_API_KEY") 
+openai.api_key = os.getenv("OPENAI_API_KEY")
 openai.organization = os.getenv("OPENAI_ORGANIZATION") 
 
 system_message = {"role": "system", "content": "You are a helpful assistant."}
 max_response_tokens = 250
 token_limit= 4096
-conversation=[]
-conversation.append(system_message)
+conversation = [system_message]
 
 def num_tokens_from_messages(messages, model="gpt-3.5-turbo-0301"):
     encoding = tiktoken.encoding_for_model(model)
